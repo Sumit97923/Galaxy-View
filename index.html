@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌌 MEGA GALAXY - Professional Space Observatory</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- LOADING SCREEN -->
+    <div id="loading">
+        <h1>🌌 MEGA GALAXY</h1>
+        <div class="spinner"></div>
+        <div class="progress" id="progress-text">Loading NASA data...</div>
+        <div class="progress-bar"><div class="fill" id="progress-fill"></div></div>
+    </div>
+
+    <!-- TOP BAR -->
+    <div id="top-bar">
+        <input type="text" id="search-input" placeholder="🔍 Search...">
+        <button id="search-btn">Go</button>
+        <button class="view-btn" id="view-top">⬆ Top</button>
+        <button class="view-btn" id="view-side">➡ Side</button>
+        <button id="reset-btn" style="background:#666;color:white;">⟲</button>
+        <button id="toggle-rotate" style="background:#44aa44;color:white;">⏸</button>
+        <button class="speed-btn" id="speed-down">−</button>
+        <span id="speed-display">1.0</span>
+        <button class="speed-btn" id="speed-up">+</button>
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="Supergiant">⭐</button>
+        <button class="filter-btn" data-filter="Giant">🔶</button>
+        <button class="filter-btn" data-filter="Dwarf">🔵</button>
+        <button class="nasa-btn" id="nasa-facts">🚀 NASA</button>
+        <button class="nasa-btn" id="show-compare">📊 Compare</button>
+        <button id="audio-toggle" style="background:#8a0a8a;color:white;">🎵 Play Sound</button>
+        <button id="tour-btn" style="background:#cc6600;color:white;">🚀 Tour</button>
+    </div>
+
+    <!-- CONTROL CENTER SIDEBAR -->
+    <div id="control-center">
+        <h3 style="color:#ffaa00; font-size:12px; margin-bottom:5px;">🔭 CONTROL PANEL</h3>
+        
+        <h4>🛰️ Telemetry Dashboard</h4>
+        <div style="font-size:10px; color:#aaa; line-height:1.4;">
+            <div>Target: <span id="tele-name" style="color:#77ff88;">None</span></div>
+            <div>Light Travel: <span id="tele-light-time" style="color:#88ccff;">N/A</span></div>
+            <div>Doppler Shift (z): <span id="tele-doppler" style="color:#ffdd77;">0.000000</span></div>
+        </div>
+
+        <h4>🎨 Galaxy Nebula Preset</h4>
+        <div class="row-control">
+            <label>Color Swapper</label>
+            <select id="nebula-color-selector">
+                <option value="Cosmic Amber">Cosmic Amber</option>
+                <option value="Orion Blue">Orion Blue</option>
+                <option value="Andromeda Purple">Andromeda Purple</option>
+                <option value="Deep Nebula Red">Deep Nebula Red</option>
+            </select>
+        </div>
+        <div class="row-control">
+            <label>Galaxy Particle Count</label>
+            <input type="range" id="particle-density-range" min="5000" max="30000" value="20000">
+        </div>
+
+        <h4>⚙️ Stellar Analysis Tools</h4>
+        <div class="row-control" style="flex-direction:row; justify-content:space-between; align-items:center;">
+            <label>Habitable Zone Ring</label>
+            <input type="checkbox" id="hz-toggle" checked style="accent-color:#33ff33; cursor:pointer;">
+        </div>
+        <div class="row-control" style="flex-direction:row; justify-content:space-between; align-items:center;">
+            <label>Toggle H-R Diagram</label>
+            <button id="toggle-hr-btn" style="background:#0a4a8a; font-size:9px; padding:3px 6px; border-radius:5px; color:white;">Show Diagram</button>
+        </div>
+
+        <h4>🎛️ Audio Controls</h4>
+        <div class="row-control">
+            <label>Synthesizer Volume</label>
+            <input type="range" id="synth-volume-range" min="0" max="100" value="50">
+        </div>
+    </div>
+
+    <!-- H-R DIAGRAM -->
+    <div id="hr-diagram-panel">
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #444; padding-bottom:5px;">
+            <span style="font-size:11px; color:#ffaa00; font-weight:bold;">📊 Hertzsprung-Russell</span>
+            <button id="close-hr-panel" style="background:none; border:none; color:#888; cursor:pointer; font-size:14px;">✕</button>
+        </div>
+        <div id="hr-diagram-plot"></div>
+        <div style="display:flex; justify-content:space-between; font-size:8px; color:#888; margin-top:2px;">
+            <span>30,000K (O-Type)</span>
+            <span>Temperature (K)</span>
+            <span>2,500K (M-Type)</span>
+        </div>
+    </div>
+
+    <!-- LARGE MODAL FOR SUN -->
+    <div id="sun-large-modal">
+        <button class="close-sun-modal" id="close-sun-large">✕ Close NASA Portal</button>
+        <div class="sun-modal-layout">
+            <div class="sun-modal-sidebar" id="sun-sidebar-stats"></div>
+            <div class="sun-modal-main">
+                <h2 style="color:#ffaa00; border-bottom:1px solid rgba(255,170,0,0.3); padding-bottom:5px;">📋 500+ Solar Heliophysics Facts</h2>
+                <div class="facts-scroller" id="sun-facts-scroller"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FACT PANEL -->
+    <div id="fact-panel">
+        <button class="close-btn" id="close-fact">✕</button>
+        <h2 id="star-name-display">Star Name</h2>
+        <div class="subtitle" id="star-constellation">Constellation • Type</div>
+        <div id="fact-content"></div>
+        <div class="description" id="star-description">Scientific description of the star.</div>
+    </div>
+
+    <!-- TIME SLIDER -->
+    <div id="time-slider">
+        <label>⏳ Time:</label>
+        <input type="range" id="time-range" min="-1000" max="1000" value="0">
+        <span id="time-display">Now</span>
+    </div>
+
+    <!-- STATS -->
+    <div id="stats">🌟 Loading...</div>
+
+    <!-- THREE.JS IMPORTS -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.128.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.128.0/examples/jsm/"
+            }
+        }
+    </script>
+
+    <!-- MAIN GALAXY SCRIPT -->
+    <script type="module" src="galaxy.js"></script>
+
+</body>
+</html>
