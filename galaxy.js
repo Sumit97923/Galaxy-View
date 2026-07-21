@@ -598,7 +598,7 @@ setTimeout(() => {
 }, 500);
 
 // ==================== STATS ====================
-document.getElementById('stats').textContent = `🌟 ${starMeshes.length} stars • 20,000 particles • NASA Level`;
+document.getElementById('stats').textContent = `🌟 ${starMeshes.length} stars • 20,000 particles `;
 
 // ==================== SPEED CONTROL ====================
 let currentSpeed = 1.0;
@@ -829,7 +829,7 @@ function openSunLargeModal(data) {
 
     sidebar.innerHTML = `
                 <h1 style="color:#ffaa00; text-shadow:0 0 15px rgba(255,170,0,0.4); font-size:24px; margin-bottom:5px;">☀️ Sun (Surya)</h1>
-                <p style="color:#88aaff; font-size:12px; margin-bottom:15px;">NASA Heliophysics Archive</p>
+                <p style="color:#88aaff; font-size:12px; margin-bottom:15px;"> Heliophysics Archive</p>
                 
                 <div class="fact-row"><span class="label">🏷️ Classification</span><span class="value red">${data.sizeDesc}</span></div>
                 <div class="fact-row"><span class="label">⭐ Magnitude</span><span class="value">${data.mag}</span></div>
