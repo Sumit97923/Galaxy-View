@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌌 MEGA GALAXY - Professional Space Observatory</title>
+    <title>🌌 MEGA GALAXY VIEW </title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,13 +12,13 @@
     <div id="loading">
         <h1>🌌 MEGA GALAXY</h1>
         <div class="spinner"></div>
-        <div class="progress" id="progress-text">Loading NASA data...</div>
+        <div class="progress" id="progress-text">Loading OUR data...</div>
         <div class="progress-bar"><div class="fill" id="progress-fill"></div></div>
     </div>
 
     <!-- TOP BAR -->
     <div id="top-bar">
-        <input type="text" id="search-input" placeholder="🔍 Search...">
+        <input type="text" id="search-input" placeholder=" STAR Search...">
         <button id="search-btn">Go</button>
         <button class="view-btn" id="view-top">⬆ Top</button>
         <button class="view-btn" id="view-side">➡ Side</button>
@@ -48,7 +48,7 @@
             <div>Doppler Shift (z): <span id="tele-doppler" style="color:#ffdd77;">0.000000</span></div>
         </div>
 
-        <h4>🎨 Galaxy Nebula Preset</h4>
+        <h4> Galaxy Nebula Preset</h4>
         <div class="row-control">
             <label>Color Swapper</label>
             <select id="nebula-color-selector">
@@ -63,7 +63,7 @@
             <input type="range" id="particle-density-range" min="5000" max="30000" value="20000">
         </div>
 
-        <h4>⚙️ Stellar Analysis Tools</h4>
+        <h4> Stellar Analysis Tools</h4>
         <div class="row-control" style="flex-direction:row; justify-content:space-between; align-items:center;">
             <label>Habitable Zone Ring</label>
             <input type="checkbox" id="hz-toggle" checked style="accent-color:#33ff33; cursor:pointer;">
@@ -73,7 +73,7 @@
             <button id="toggle-hr-btn" style="background:#0a4a8a; font-size:9px; padding:3px 6px; border-radius:5px; color:white;">Show Diagram</button>
         </div>
 
-        <h4>🎛️ Audio Controls</h4>
+        <h4>🎵 Audio Controls</h4>
         <div class="row-control">
             <label>Synthesizer Volume</label>
             <input type="range" id="synth-volume-range" min="0" max="100" value="50">
@@ -96,7 +96,7 @@
 
     <!-- LARGE MODAL FOR SUN -->
     <div id="sun-large-modal">
-        <button class="close-sun-modal" id="close-sun-large">✕ Close NASA Portal</button>
+        <button class="close-sun-modal" id="close-sun-large">✕ Close OUR Portal</button>
         <div class="sun-modal-layout">
             <div class="sun-modal-sidebar" id="sun-sidebar-stats"></div>
             <div class="sun-modal-main">
@@ -123,7 +123,7 @@
     </div>
 
     <!-- STATS -->
-    <div id="stats">🌟 Loading...</div>
+    <div id="stats">🌟 Loading....</div>
 
     <!-- THREE.JS IMPORTS -->
     <script type="importmap">
